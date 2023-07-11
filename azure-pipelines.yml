@@ -50,27 +50,28 @@ stages:
             inputs:
               terraformVersion: 'latest'
           - task: TerraformTaskV4@4
-          displayName: init
-          inputs:
-            provider: 'azurerm'
-            command: 'init'
-            backendServiceArm: 'Free Trial (74f21403-e018-4803-995a-f0ba488ba639)'
-            backendAzureRmResourceGroupName: '$(bkstrgrg)'
-            backendAzureRmStorageAccountName: '$(bkstrg)'
-            backendAzureRmContainerName: '$(bkcontainer)'
-            backendAzureRmKey: '$(bkstrgkey)'
-        - task: TerraformTaskV4@4
-          displayName: plan
-          inputs:
-            provider: 'azurerm'
-            command: 'plan'
-            environmentServiceNameAzureRM: 'Free Trial (74f21403-e018-4803-995a-f0ba488ba639)'
-        - task: TerraformTaskV4@4
-          displayName:  apply
-          inputs:
-            provider: 'azurerm'
-            command: 'apply'
-            environmentServiceNameAzureRM: 'Free Trial (74f21403-e018-4803-995a-f0ba488ba639)'
+            displayName: init
+            inputs:
+             provider: 'azurerm'
+             command: 'init'
+             backendServiceArm: 'Free Trial (74f21403-e018-4803-995a-f0ba488ba639)'
+             backendAzureRmResourceGroupName: '$(bkstrgrg)'
+             backendAzureRmStorageAccountName: '$(bkstrg)'
+             backendAzureRmContainerName: '$(bkcontainer)'
+             backendAzureRmKey: '$(bkstrgkey)'
+
+          - task: TerraformTaskV4@4
+            displayName: plan
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              environmentServiceNameAzureRM: 'Free Trial (74f21403-e018-4803-995a-f0ba488ba639)'
+          - task: TerraformTaskV4@4
+            displayName:  apply
+            inputs:
+              provider: 'azurerm'
+              command: 'apply'
+              environmentServiceNameAzureRM: 'Free Trial (74f21403-e018-4803-995a-f0ba488ba639)'
 
         
         
